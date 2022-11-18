@@ -10,4 +10,7 @@
         select * from member_table where memberEmail=#{memberEmail}
                                      and memberPassword=#{memberPassword}
     </select>
+    <select id="findById" parameterType="String" resultType="Long">
+        select id from member_table where memberEmail=#{sessionEmail}
+    </select>
 </mapper>

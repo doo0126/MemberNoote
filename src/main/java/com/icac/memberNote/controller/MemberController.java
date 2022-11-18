@@ -24,7 +24,7 @@ public class MemberController {
 
     }
     //회원 로그인 메소드
-    @PostMapping("/member/memberlogin")
+    @PostMapping("/member/login")
     public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session,
                         Model model) {
         System.out.printf("%s\n",memberDTO);
@@ -32,7 +32,7 @@ public class MemberController {
         if (loginResult) {
             // 세션에 로그인한 사용자의 이메일을 저장
             session.setAttribute("loginEmail", memberDTO.getMemberEmail());
-            model.addAttribute("modelEmail", memberDTO.getMemberEmail());
+            model.addAttribute("memberId", memberDTO.getId());
             return "member/main";
         } else {
             return "member/login";

@@ -16,14 +16,52 @@
     <title>main</title>
 </head>
 <body>
-<a href="/member/loginForm">로그아웃</a><br>
 
 
-<i class="bi bi-plus-lg" onclick="newBoard()"><a>새로운 페이지</a></i>
+<div id="titleList">
+<i class="bi bi-plus-lg" onclick="titleList()"><a2>새로운 페이지</a2></i><br>
+</div>
+<div id="writeAll">
+    <div id="boardTitle">
+        <input type="text" id="title" onclick="read()" onkeydown="writeTitle()" placeholder="제목입력">
+    </div>
+    <div id="boardContents">
+
+
+    </div>
+
+
+</div>
 </body>
 <script>
-    newBoard = () =>{
-        console.log("클릭 확인")
+    let boardId = 1;
+    const titleList = () =>{
+
+        const inputTitleList = document.getElementById("titleList");
+
+        inputTitleList.innerHTML += "<a onclick='write()' id=boardId value=baordId >"+"제목 없음" + "</a>"+"<br>";
+        boardId++;
+
+    }
+    const read = () => {
+        let resultTitle=document.getElementById("title").value
+        let boardId=document.getElementById("boardId").value
+        $.ajax({
+            url: '/board/read',
+            type: 'post',
+            data:{boardId:boardId},
+            dataType:'json',
+            success:function (result){
+                resultTitle = ${boardDTO}
+
+
+            },
+            error: function () {
+                
+            }
+
+
+        })
     }
 </script>
 </html>

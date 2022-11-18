@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="container">
-    <form action="/member/memberlogin" method="post">
+    <form action="/member/login" method="post">
         <input type="text" name="memberEmail" placeholder="이메일" class="form-control">
         <input type="text" name="memberPassword" placeholder="비밀번호" class="form-control">
         <input type="submit" class="btn btn-primary" value="로그인">
