@@ -24,8 +24,11 @@ public class HomeController {
     public String loginForm(){
         return "/member/login";
     }
-    @GetMapping("/board/listForm")
-    public String listForm(){
-        return "/board/list";
+
+
+    @GetMapping("/board/saveForm")
+    public String boardSave(){
+        return "/board/boardSave";
     }
+
 }

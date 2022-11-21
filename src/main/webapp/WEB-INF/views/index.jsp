@@ -8,6 +8,6 @@
 <h2>indexText</h2>
 <a href="/member/saveForm">회원가입</a>
 <a href="/member/loginForm">로그인</a>
-<a href="/board/listForm">글 목록</a>
+<a href="/board/list">글 목록</a>
 </body>
 </html>

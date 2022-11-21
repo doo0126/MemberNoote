@@ -9,6 +9,7 @@ import lombok.*;
 @ToString
 public class BoardDTO {
     private Long id;
+    private String boardWriter;
     private String boardTitle;
     private String boardContents;
     private Long boardHits;

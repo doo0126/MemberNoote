@@ -34,7 +34,8 @@ public class MemberController {
             // 세션에 로그인한 사용자의 이메일을 저장
             session.setAttribute("loginEmail", memberDTO.getMemberEmail());
             model.addAttribute("memberId", memberDTO.getId());
-            return "board/boardList";
+            String loginEmail=(String)session.getAttribute("loginEmail");
+            return "redirect:/board/list";
         } else {
             return "index";
         }
