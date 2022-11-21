@@ -1,5 +1,5 @@
 package com.icac.memberNote.DTO;
-
+import java.sql.Timestamp;
 import lombok.*;
 
 @Getter
@@ -11,5 +11,7 @@ public class BoardDTO {
     private Long id;
     private String boardTitle;
     private String boardContents;
+    private Long boardHits;
+    private Timestamp boardCreatedDate;
     private Long memberId;
 }

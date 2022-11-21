@@ -23,4 +23,14 @@ public class MemberService {
         return false;
     }
     }
+
+    public String emailCheck(String inputEmail) {
+         String result=memberRepository.emailCheck(inputEmail);
+    if(result==null){
+        return "ok";
+    }
+    else{
+        return  "false";
+    }
+    }
 }

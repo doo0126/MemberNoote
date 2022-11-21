@@ -7,9 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSession;
-import java.lang.reflect.Member;
 
 @Controller
 public class MemberController {
@@ -27,15 +28,24 @@ public class MemberController {
     @PostMapping("/member/login")
     public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session,
                         Model model) {
-        System.out.printf("%s\n",memberDTO);
+
         boolean loginResult = memberService.login(memberDTO);
         if (loginResult) {
             // 세션에 로그인한 사용자의 이메일을 저장
             session.setAttribute("loginEmail", memberDTO.getMemberEmail());
             model.addAttribute("memberId", memberDTO.getId());
-            return "member/main";
+            return "board/boardList";
         } else {
-            return "member/login";
+            return "index";
         }
     }
+    @PostMapping("/member/emailCheck")
+    public @ResponseBody String  emailCheck(@RequestParam("inputEmail") String inputEmail){
+        System.out.printf("받아온 값%s\n",inputEmail);
+        return memberService.emailCheck(inputEmail);
+
+
+
+    }
+
 }
